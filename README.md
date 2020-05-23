@@ -1,2 +1,2 @@
 # hieroglyphs
-Series of tutorials on Egyptian Language
+Series of tutorials introducing the Egyptian Language and Egyptology.
