@@ -1,0 +1,518 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                LESSONS ON EGYPTOLOGY AND EGYPTIAN LANGUAGE
+%
+%  AUTHOR: RAMSES A.
+%  EMAIL:  admin@ramses.ca
+%  GITHUB: https://github.com/iocoder/hieroglyphs
+%  DATE:   JUNE 2020
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  FILE:   macros.tex
+%  DESC:   HELPER MACROS FOR ALL SLIDES
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  LESSONS ON EGYPTOLOGY AND EGYPTIAN LANGUAGE
+%  Copyright (C) 2020  Ramses A.
+%
+%  This program is free software: you can redistribute it and/or modify
+%  it under the terms of the GNU General Public License as published by
+%  the Free Software Foundation, either version 3 of the License, or
+%  (at your option) any later version.
+%
+%  This program is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%  GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License
+%  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -------------
+% PACKAGES USED
+% -------------
+\usepackage{etex}
+\usepackage{xyling}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{arydshln,enumerate,amsmath}
+\usepackage{framed,pifont}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{shadowtext}
+\usepackage{geometry}
+\usepackage{lastpage}
+\usepackage[absolute,overlay]{textpos}
+\usepackage[tikz]{bclogo}
+\usepackage{fontawesome}
+\usepackage{lipsum}
+\usepackage{multimedia}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{ifthen}
+\usepackage{coptic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  HTML COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -----------
+% COLORS USED
+% -----------
+\definecolor{specred}{HTML}{d1081a}
+\definecolor{specgreen}{HTML}{08a108}
+\definecolor{specblue}{HTML}{003060}
+\definecolor{specnavy}{HTML}{003870}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  MARGINS FOR ALL PAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------
+% MARGIN SIZES
+% ------------
+\setbeamersize{text margin left=10mm}
+\setbeamersize{text margin right=10mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  NORMAL PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----------------
+% NORMAL PAGE TEXT
+% ----------------
+\setbeamercolor*{normal text}{fg=black}
+\setbeamerfont{normal text}{size=\small}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --------------
+% MAIN TITLE BOX
+% --------------
+\setbeamercolor*{titlebox}{fg=green!40!black,bg=yellow}
+\setbeamerfont{titlebox}{family=\rmfamily,
+                         series=\bfseries,
+                         size=\Large,
+                         shape=\itshape}
+
+% ------------
+% SUBTITLE BOX
+% ------------
+\setbeamercolor*{subtitlebox}{fg=blue!40!black,bg=white}
+\setbeamerfont{subtitlebox}{family=\rmfamily,
+                            series=\bfseries,
+                            size=\normalsize,
+                            shape=\itshape}
+
+% ---------
+% LINKS BOX
+% ---------
+\setbeamercolor*{linksbox}{fg=white}
+\setbeamerfont{linksbox}{family=\ttfamily,
+                         series=\bfseries,
+                         size=\footnotesize,
+                         shape=\itshape}
+
+% -------------------
+% TITLE PAGE TEMPLATE
+% -------------------
+\setbeamertemplate{title page}
+{
+
+   % BACKGROUND PHOTO
+   % >>>>>>>>>>>>>>>>
+
+   % render background photo
+	\tikz[remember picture,overlay]
+	    \node[opacity=1,inner sep=0pt] at (current page.center) {
+	       \includegraphics[width=\paperwidth,height=\paperheight]{img_cov.jpg}
+	    };
+
+   % MAIN TITLE BOX
+   % >>>>>>>>>>>>>>
+
+   % render main title box
+	\begin{textblock*}{90mm}(10mm,30mm){}
+
+	   % set opaque
+		\pgfsetfillopacity{0.8}
+
+		% draw the box
+      \begin{beamercolorbox}[wd=\paperwidth,ht=9mm,sep=2mm]{titlebox}{}
+
+         % draw text
+	      \usebeamerfont{titlebox}
+         \center{\shadowtext{Layman's Guide to Egyptology}}
+
+      % box drawn
+      \end{beamercolorbox}
+
+      % reset opacity
+		\pgfsetfillopacity{1}
+
+   % done with main title box
+	\end{textblock*}
+
+   % SUBTITLE BOX
+   % >>>>>>>>>>>>
+
+   % render subtitle box
+	\begin{textblock*}{90mm}(10mm,39mm){}
+
+	   % set opaque
+		\pgfsetfillopacity{0.8}
+
+		% draw the box
+      \begin{beamercolorbox}[wd=\paperwidth,ht=8mm,sep=1mm]{subtitlebox}{}
+	      \usebeamerfont{subtitlebox}
+	      \center{\inserttitle}
+
+      % box drawn
+      \end{beamercolorbox}
+
+      % reset opacity
+		\pgfsetfillopacity{1}
+
+   % done subtitle box
+	\end{textblock*}
+
+   % LINKS BOX
+   % >>>>>>>>>
+
+   % render links box
+	\begin{textblock*}{90mm}(10mm,55mm){}
+
+      % apply style
+      \usebeamerfont{linksbox}
+      \usebeamercolor[fg]{linksbox}
+
+      % draw table
+      \begin{tabular}{ m{0.23\paperwidth} c m{0.70\paperwidth}}
+         & \faUser      & \href{https://ramses.ca}
+                               {\underline{Ramses A.}}  \\
+         & \faEnvelope  & \href{mailto:admin@ramses.ca}
+                               {\underline{admin@ramses.ca}} \\
+         & \faGithub    & \href{https://github.com/iocoder/hieroglyphs}
+                               {\underline{github.com/iocoder/hieroglyphs}}\\
+         & \faMapMarker & \href{https://en.wikipedia.org/wiki/Montreal}
+                               {\underline{Montréal}},
+                          \href{https://en.wikipedia.org/wiki/Canada}
+                               {\underline{Canada}} \\
+         & \faCalendar  & June, 2020
+      \end{tabular}
+
+      % reset style
+      \usebeamercolor[fg]{normal text}
+      \usebeamerfont{normal text}
+
+   % done with links box
+	\end{textblock*}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  HEADLINE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----------------
+% SECTION HEAD BOX
+% ----------------
+\setbeamercolor*{sectionbox}{fg=white,bg=specblue}
+\setbeamerfont{sectionbox}{family=\rmfamily,
+                           size=\large,
+                           shape=\itshape}
+
+% ---------------
+% FRAME TITLE BOX
+% ---------------
+\setbeamercolor*{framebox}{fg=white!20!yellow,bg=specnavy}
+\setbeamerfont{framebox}{family=\rmfamily,
+                         size=\small}
+
+% -----------------
+% HEADLINE TEMPLATE
+% -----------------
+\setbeamertemplate{headline}
+{
+   % SECTION HEAD BOX
+   % >>>>>>>>>>>>>>>>
+
+   % skip title page
+   \ifdefined\insertframetitle
+
+      % render section head box
+      \begin{textblock*}{90mm}(10mm,0mm){}
+
+         % draw the box
+         \begin{beamercolorbox}[wd=\paperwidth,ht=14mm,sep=3mm]{sectionbox}{}
+
+            % only print section head on non-outline pages
+            \ifthenelse{\equal{\beamer@frametitle}{Outline}}{}{
+               \usebeamerfont{sectionbox}
+               \hspace*{5mm}
+               \insertsectionnumber\, \insertsectionhead
+            }
+
+         % box drawn
+         \end{beamercolorbox}
+
+      % done with section head box
+      \end{textblock*}
+
+   % close the ifdefined
+   \fi
+
+   % FRAME TITLE BOX
+   % >>>>>>>>>>>>>>>
+
+   % skip title page
+   \ifdefined\insertframetitle
+
+      % render frame title box
+      \begin{textblock*}{90mm}(10mm,13.5mm){}
+
+         % draw the box
+         \begin{beamercolorbox}[wd=\paperwidth,ht=8mm]{framebox}{}
+
+             % draw text (frame title)
+             \usebeamerfont{framebox}
+             \hspace*{17mm}\insertframetitle\tiny\newline
+
+         % box drawn
+         \end{beamercolorbox}
+
+      % done with frame title box
+      \end{textblock*}
+
+   % close the ifdefined
+   \fi
+
+   % ICON BOX
+   % >>>>>>>>>
+
+   % skip title page
+   \ifdefined\insertframetitle
+
+      % render icon box
+      \begin{textblock*}{90mm}(0mm,0mm){}
+
+         % outline page?
+         \ifthenelse{\equal{\beamer@frametitle}{Outline}}{
+
+            % print papyrus
+            \tikz[remember picture,overlay]
+                \node[opacity=1,inner sep=0pt] at (14,-12mm) {
+                   \includesvg[width=11mm,height=11mm]{icon_papyrus.svg}
+                };
+         % else
+         }{
+
+            % print pschent
+            \tikz[remember picture,overlay]
+                \node[xscale=-1,opacity=1,inner sep=0pt] at (14,-11mm) {
+                   \includesvg[width=15mm,height=15mm]{icon_pschent.svg}
+                };
+
+         % end if
+         }
+
+      % done with icon box
+      \end{textblock*}
+
+   % close the ifdefined
+   \fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  FRAME TITLE BAR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -----------
+% FRAME TITLE
+% -----------
+\setbeamercolor*{frametitle}{fg=black}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{frametitle}{\vspace*{18mm}}
+
+% --------------
+% FRAME SUBTITLE
+% --------------
+\setbeamercolor*{framesubtitle}{fg=black}
+\setbeamerfont{framesubtitle}{size=\large}
+\setbeamertemplate{framesubtitle}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  TABLE OF CONTENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------
+% SECTION HEAD
+% ------------
+\setbeamercolor*{section in toc}{fg=specblue}
+\setbeamerfont{section in toc}{size=\small}
+\setbeamertemplate{section in toc}[sections numbered]
+
+% -------------------
+% SECTION HEAD SHADED
+% -------------------
+\setbeamercolor*{section in toc shaded}{fg=gray}
+\setbeamerfont{section in toc shaded}{size=\small}
+\setbeamertemplate{section in toc shaded}[sections numbered]
+
+% ---------------
+% SUBSECTION HEAD
+% ---------------
+\setbeamercolor*{subsection in toc}{fg=specblue}
+\setbeamerfont{subsection in toc}{size=\small}
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+% ----------------------
+% SUBSECTION HEAD SHADED
+% ----------------------
+\setbeamercolor*{subsection in toc shaded}{fg=gray}
+\setbeamerfont{subsection in toc shaded}{size=\small}
+\setbeamertemplate{subsection in toc shaded}[subsections numbered]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  BLOCKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -----------
+% BLOCK TITLE
+% -----------
+\setbeamercolor*{block title}{bg=specblue, fg=white}
+\setbeamerfont{block title}{size=\normalsize}
+
+% ----------
+% BLOCK BODY
+% ----------
+\setbeamercolor*{block body}{bg=white!90!black, fg=black}
+\setbeamerfont{block body}{size=\small}
+
+% -------------------
+% BLOCK TITLE ALERTED
+% -------------------
+\setbeamercolor*{block title alerted}{bg=specred, fg=white}
+\setbeamerfont{block title alerted}{size=\normalsize}
+
+% ------------------
+% BLOCK BODY ALERTED
+% ------------------
+\setbeamercolor*{block body alerted}{bg=white!80!specred, fg=black}
+\setbeamerfont{block body alerted}{size=\small}
+
+% -------------------
+% BLOCK TITLE EXAMPLE
+% -------------------
+\setbeamercolor*{block title example}{bg=specgreen, fg=white}
+\setbeamerfont{block title example}{size=\normalsize}
+
+% ------------------
+% BLOCK BODY EXAMPLE
+% ------------------
+\setbeamercolor*{block body example}{bg=white!80!specgreen, fg=black}
+\setbeamerfont{block body example}{size=\small}
+
+% -----------------------
+% TEMPLATE FOR ALL BLOCKS
+% -----------------------
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  ITEMIZES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -------------
+% ITEMIZE ITEMS
+% -------------
+\setbeamercolor*{itemize item}{fg=red}
+\setbeamerfont{itemize item}{size=\larger}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  ENUMERATES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---------------
+% ENUMERATE ITEMS
+% ---------------
+\setbeamercolor*{enumerate item}{fg=red, bg=black}
+\setbeamerfont{enumerate item}{size=\larger}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  STRUCTURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --------------
+% STRUCTURE TAGS
+% --------------
+\setbeamercolor*{structure}{fg=black}
+\setbeamerfont{structure}{size=\larger}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  NAVIGATION BAR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----------------------
+% NAVIGATION BAR SYMBOLS
+% ----------------------
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  FOOTLINE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% -------
+% FOOTBOX
+% -------
+\setbeamercolor*{footbox}{fg=white,bg=specblue}
+\setbeamerfont{footbox}{size=\tiny}
+
+% -----------------
+% FOOTLINE TEMPLATE
+% -----------------
+\setbeamertemplate{footline}
+{
+   % FOOT BOX
+   % >>>>>>>>
+
+   % render foot box
+   \begin{textblock*}{90mm}(10mm,86mm){}
+
+      % draw the box
+      \begin{beamercolorbox}[wd=\paperwidth,ht=4mm,sep=0.5mm]{footbox}{}
+
+         % apply style
+		   \usebeamerfont{footbox}
+
+		   % draw table
+         \begin{tabular}{ m{0.9\paperwidth} r }
+		     \inserttitle &
+           \insertpagenumber{} / \pageref{LastPage}
+         \end{tabular}
+
+      % box drawn
+      \end{beamercolorbox}
+
+   % done with footbox
+   \end{textblock*}
+}
